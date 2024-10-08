@@ -1,14 +1,17 @@
 import React,{useMemo,useState} from 'react'
 
 
-function CounterApp(){
-    
+const expenseivecal=((number)=>{
+const calculation=((num)=>{
+return num * 2
+})
 
-    
-return(
-    <>
-    </>
-)
-}
+})
+const CounterApp=React.memo(({count})=>{
+    return (
+      <>Count is {count}</>
+    )
+    })
+
 
 export default CounterApp;
