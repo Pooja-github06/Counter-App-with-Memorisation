@@ -7,6 +7,7 @@ import CounterApp from './CounterApp'
 export default function App() {
   const [count,setCount]=useState(0);
   const [otherstate,setOtherstate]=useState('');
+  const [data,setdata]=useState([]);
   const doublecount=useMemo(()=>{
 return count * 2;
   },[count]);
@@ -17,9 +18,25 @@ return count * 2;
       <button onClick={()=>setCount(count+1)}>Increment</button>
    
       <input type='text' placeholder="Type here...." value={otherstate}onChange={(e)=>setOtherstate(e.target.value)}></input>
+      <button onClick={()=>
+        
+        
+       { if (otherstate.trim()) { // Check for non-empty input
+          setdata(prevData => [...prevData, otherstate]);
+          setOtherstate(''); // Reset input field after submission
+        }
+        }
+        }>Submit</button>
     
-    <CounterApp count={count}/>
+    <CounterApp
+     count={count }
+     inputData={data}
+     />
+    
+
     </div>
   );
   
 }
+
+
